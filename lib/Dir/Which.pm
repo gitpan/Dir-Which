@@ -6,15 +6,15 @@ package Dir::Which ;
 
           Jacquelin Charbonnel - CNRS/LAREMA
  
-  $Id: Which.pm 125 2007-04-01 21:53:15Z jaclin $
+  $Id: Which.pm 127 2007-04-02 09:42:46Z jaclin $
   
   ----
  
     Search for entries in a list of directories
 
   ----
-  $LastChangedDate: 2007-04-01 23:53:15 +0200 (Sun, 01 Apr 2007) $ 
-  $LastChangedRevision: 125 $
+  $LastChangedDate: 2007-04-02 11:42:46 +0200 (Mon, 02 Apr 2007) $ 
+  $LastChangedRevision: 127 $
   $LastChangedBy: jaclin $
   $URL: https://svn.math.cnrs.fr/jaclin/cpan/Dir/Which.pm $
  
@@ -53,7 +53,7 @@ use vars qw/ $VERSION @EXPORT_OK /;
 
 use File::Spec ;
 
-our $VERSION = sprintf("0.1_r%d", q$Revision: 125 $ =~ /(\d+)/);
+our $VERSION = sprintf("0.1_r%d", q$Revision: 127 $ =~ /(\d+)/);
 
 @EXPORT_OK = qw( which );
 
