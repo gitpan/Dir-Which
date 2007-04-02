@@ -53,7 +53,8 @@ use vars qw/ $VERSION @EXPORT_OK /;
 
 use File::Spec ;
 
-our $VERSION = sprintf("0.1_r%d", q$Revision: 127 $ =~ /(\d+)/);
+#our $VERSION = sprintf("0.1_r%d", q$Revision: 127 $ =~ /(\d+)/);
+our $VERSION= "0.2" ;
 
 @EXPORT_OK = qw( which );
 
