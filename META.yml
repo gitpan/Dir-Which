@@ -1,8 +1,8 @@
 ---
 name: Dir-Which
-version: 0.20127
+version: 0.3
 author:
-  - 'Jacquelin Charbonnel <jacquelin.charbonnel at math.cnrs.fr>'
+  - 'Jacquelin <jacquelin.charbonnel>'
 abstract: Search for directory entries in a list of directories.
 license: perl
 build_requires:
@@ -14,6 +14,6 @@ meta-spec:
 provides:
   Dir::Which:
     file: lib/Dir/Which.pm
-    version: 0.20127
+    version: 0.3
 resources:
   license: http://dev.perl.org/licenses/

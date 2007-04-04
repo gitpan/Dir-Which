@@ -5,7 +5,7 @@ use Module::Build;
 my $builder = Module::Build->new(
     module_name         => 'Dir::Which',
     license             => 'perl',
-    dist_author         => 'Jacquelin Charbonnel <jacquelin.charbonnel at math.cnrs.fr>',
+    dist_author         => 'Jacquelin <jacquelin.charbonnel>',
     dist_version_from   => 'lib/Dir/Which.pm',
     build_requires => {
         'Test::More' => 0,

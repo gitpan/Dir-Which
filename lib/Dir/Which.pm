@@ -6,17 +6,17 @@ package Dir::Which ;
 
           Jacquelin Charbonnel - CNRS/LAREMA
  
-  $Id: Which.pm 127 2007-04-02 09:42:46Z jaclin $
+  $Id: Which.pm 133 2007-04-04 07:35:27Z jaclin $
   
   ----
  
     Search for entries in a list of directories
 
   ----
-  $LastChangedDate: 2007-04-02 11:42:46 +0200 (Mon, 02 Apr 2007) $ 
-  $LastChangedRevision: 127 $
+  $LastChangedDate: 2007-04-04 09:35:27 +0200 (Wed, 04 Apr 2007) $ 
+  $LastChangedRevision: 133 $
   $LastChangedBy: jaclin $
-  $URL: https://svn.math.cnrs.fr/jaclin/cpan/Dir/Which.pm $
+  $URL: https://svn.math.cnrs.fr/jaclin/src/lib/Dir-Which/Which.pm $
  
   ======================
 
@@ -53,7 +53,7 @@ use vars qw/ $VERSION @EXPORT_OK /;
 
 use File::Spec ;
 
-our $VERSION = sprintf("0.2%04d", q$Revision: 127 $ =~ /(\d+)/);
+$VERSION = "0.3" ;
 
 @EXPORT_OK = qw( which );
 
@@ -95,13 +95,18 @@ listed in the path string (and so an empty list if no match is found).
 
 =head1 EXAMPLES
 
+  use Dir::Which qw/ which /;
+
   $file = which(
                -entry => "myprog.conf", 
-               -defaultpath => ".:".$FindBin::Bin.":/etc:/usr/local/etc"
+               -defaultpath => "/etc:/usr/local/etc"
           ) ;
 
-Searches the absolute name of C<myprog.conf> successivement in the current directory, the directory which contains the program binary,
+Searches the absolute name of C<myprog.conf> successivement in the directories
 C</etc> and C</usr/local/etc>. Returns the first entry found.
+
+  use Dir::Which qw/ which /;
+  use FindBin qw($Bin) ;
 
   @entries = which(
                -entry => "myprog.d", 
@@ -111,6 +116,8 @@ C</etc> and C</usr/local/etc>. Returns the first entry found.
 Returns the absolute names of C<myprog.d> searched in the current directory, the directory which contains the program binary,
 C</etc> and C</usr/local/etc>. 
 
+  use Dir::Which qw/ which /;
+
   $file = which(
                -entry => "myprog.conf", 
                -env => "myprog_path"
@@ -118,6 +125,9 @@ C</etc> and C</usr/local/etc>.
 
 Searches the absolute name of C<myprog.conf> in the path stored in the environment variable C<myprog_path>.
 Returns the name of the first file found, or C<undef> if no entry found.
+
+  use Dir::Which qw/ which /;
+  use FindBin qw($Bin) ;
 
   $file = which(
                -entry => "myprog.conf", 
@@ -138,8 +148,6 @@ sub which {
   %h = map { /^-/ ? lc : $_ ;} %h ;
   
   my $file = $h{"-entry"} or croak "error in Dir::Which::which : argument '-entry' is missing" ;
-  #my $env = exists $h{"-env"} ? $h{"-env"} : "$$\_path" ;
-  #my $defaultpath = $h{"-defaultpath"} ;
 
   my @matches = () ;
   if (exists($h{"-env"}))  
@@ -226,7 +234,7 @@ more portability than simply assuming colon-separated paths.
 
 =head1 SEE ALSO
 
-L<File::SearchPath>, L<Env::Path>, L<File::Which>.
+L<File::SearchPath>, L<FindBin>, L<Env::Path>, L<File::Which>.
 
 =head1 AUTHOR
 

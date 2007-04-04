@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'Dir::Which',
-    AUTHOR              => 'Jacquelin Charbonnel <jacquelin.charbonnel at math.cnrs.fr>',
+    AUTHOR              => 'Jacquelin <jacquelin.charbonnel>',
     VERSION_FROM        => 'lib/Dir/Which.pm',
     ABSTRACT_FROM       => 'lib/Dir/Which.pm',
     PL_FILES            => {},
